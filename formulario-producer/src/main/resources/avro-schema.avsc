@@ -1,0 +1,18 @@
+{
+  "namespace": "br.com.deyvidfernandes.customer.producer.dto",
+  "type": "record",
+  "name": "Customer",
+  "fields": [
+    {
+      "name": "nome",
+      "type": "string"
+    },
+    {
+      "name": "idade",
+      "type": [
+        "int",
+        "null"
+      ]
+    }
+  ]
+}
