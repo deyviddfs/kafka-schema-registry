@@ -36,7 +36,7 @@ Como Usar
 * Validar se foi tudo criado e está UP com o comando <b>docker-compose ps</b>
 * Abrir o projeto formulario-producer
 * Se alterar o schema disponível no caminho formulario-producer/src/main/resources/avro-schema.avsc
-** Rodar o comando <b>mvn compile</b> para gerar as classes Avro
+  * Rodar o comando <b>mvn compile</b> para gerar as classes Avro
 * Copiar a classes geradas para o projeto cadastro-consumer/src/java
 * Subir as duas aplicações através da classe SpringApplication
 
@@ -45,24 +45,24 @@ Como Usar
 Testes
 =================
 * 1- Fazer uma requesição POST 
-<p>
-curl --location --request POST 'http://localhost:8080/cliente/' \
---form 'id="1"' \
---form 'nome="Deyvid Fernandes"' \
---form 'idade="33"'
-</p>
+    <p>
+    curl --location --request POST 'http://localhost:8080/cliente/' \
+    --form 'id="1"' \
+    --form 'nome="Deyvid Fernandes"' \
+    --form 'idade="33"'
+    </p>
 
 * Resultado esperado é produzir uma mensagem no formato json no tópico DEV.CLIENTE, uma forma de validar é exeutando o seguinte comando: 
-<p>docker exec -ti broker ../../bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic DEV.CUSTOMER --from-beginning</p>
+    <p>docker exec -ti broker ../../bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic DEV.CUSTOMER --from-beginning</p>
 
 * 2 - Listar todos os tópicos com schema definido
-<P>curl --location --request GET 'http://localhost:8081/subjects' </P>
+    <P>curl --location --request GET 'http://localhost:8081/subjects' </P>
 
 * 3 - Retornar a versão 1 do schema do tópico DEV.CUSTOMER
-<p>curl --location --request GET 'http://localhost:8081/subjects/DEV.CUSTOMER-value/versions/1'</p>
+    <p>curl --location --request GET 'http://localhost:8081/subjects/DEV.CUSTOMER-value/versions/1'</p>
 
 * 4 - Listar todos os schemas
-<p>curl --location --request GET 'http://localhost:8081/schemas'</p>
+    <p>curl --location --request GET 'http://localhost:8081/schemas'</p>
 
 * 5 - O Arquivo kafka-schema-registry.postman_collection.json contém os exemplos das chamada
 
